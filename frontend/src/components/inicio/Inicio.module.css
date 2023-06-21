@@ -1,0 +1,20 @@
+.inicioContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+.logoCarniceria {
+    width: 20rem;
+    height: 20rem;
+}
+.titleContainer {
+    margin-top: 2rem;
+}
+.title {
+    color: white;
+    font-size: var(--title);
+    font-weight: bold;
+}

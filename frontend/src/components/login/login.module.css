@@ -1,0 +1,51 @@
+.loginContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+}
+
+.formContainer {
+	display: flex;
+	flex-direction: row;
+	margin-top: 2rem;
+}
+
+.labelInputContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	justify-content: center;
+}
+
+.labelContainer {
+	padding: 4rem 2rem 4rem 0;
+	margin-right: 2rem;
+	padding-right: 1rem;
+	font-size: var(--details);
+	color: var(--white);
+	font-weight: bold;
+	align-items: end;
+	border-right: 2px solid white;
+}
+.label {
+	margin: 1rem 0;
+}
+.inputContainer {
+	margin-top: 5rem;
+}
+
+.input {
+	margin: 0.7rem 0;
+	border-style: none;
+	height: 2.5rem;
+	width: 24rem;
+	padding-left: 0.8rem;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+}
