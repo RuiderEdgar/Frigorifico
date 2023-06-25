@@ -5,7 +5,7 @@ import { config } from '@configs/configEnvs';
 
 export default (app: Application) => {
 	const routes = () => {
-		app.use(config.BASE_PATH!, authRoutes.routes().bind(authRoutes));
+		app.use(config.BASE_PATH!, authRoutes.routes());
 	};
 	routes();
 };

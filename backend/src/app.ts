@@ -1,15 +1,17 @@
 import express, { Express } from 'express';
 import { FrigorificoServer } from '@bootstrap/setupServer.bootstrap';
 import { config } from '@configs/configEnvs';
-import databaseConnection from '@bootstrap/setupDatabase.bootstrap';
+// import databaseConnection rom '@bootstrap/setupDatabase.bootstrap';
+import { testingConnection } from '@bootstrap/setupDatabase.bootstrap';
 
 class Application {
 	public initialize(): void {
 		this.loadConfig();
-		databaseConnection();
+		// databaseConnection();
 		const app: Express = express();
 		const server: FrigorificoServer = new FrigorificoServer(app);
 		server.start();
+		testingConnection();
 	}
 
 	private loadConfig(): void {

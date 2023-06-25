@@ -1,24 +1,15 @@
-import express, { Router, Request, Response } from 'express';
+import express, { Router } from 'express';
 import { SignIn } from '@auth/controllers/signin';
-import { Connection } from 'tedious';
-import databaseConnection from '@bootstrap/setupDatabase.bootstrap';
 import AuthService from '@services/db/auth.service';
-
+import FrigorificoDB from '@bootstrap/setupDatabase.bootstrap';
 class AuthRouters {
 	private router: Router;
-	private authService: AuthService;
 
 	constructor() {
 		this.router = express.Router();
-		const connection: Connection = databaseConnection(); // Obtener la instancia de Connection desde setupDatabase.ts
-		this.authService = new AuthService(connection); // Crear una instancia de AuthService con la conexión
-
-		this.router.post('/signin', this.signInHandler.bind(this));
-	}
-
-	private async signInHandler(req: Request, res: Response): Promise<void> {
-		const signInController = new SignIn(this.authService);
-		await signInController.read(req, res);
+		const authService = new AuthService(FrigorificoDB); // Crea una instancia de AuthService
+		const signInController = new SignIn(authService); // Crea una instancia de SignIn y pasa authService como argumento
+		this.router.post('/signin', signInController.read.bind(signInController)); // Asocia el método read del controlador
 	}
 
 	public routes(): Router {

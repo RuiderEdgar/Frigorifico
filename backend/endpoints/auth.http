@@ -8,6 +8,6 @@ Accept: application/json
 withCredentials: true
 
 {
-	"username": "ADMIN001",
+	"user": "ADMIN001",
   "password": "frigorificoadmin"
 }

@@ -1,7 +1,7 @@
 import Joi, { ObjectSchema } from 'joi';
 
 const loginSchema: ObjectSchema = Joi.object().keys({
-	username: Joi.string().required().messages({
+	user: Joi.string().required().messages({
 		'string.base': 'Username must be of type string',
 		'string.empty': 'Username is a required field'
 	}),

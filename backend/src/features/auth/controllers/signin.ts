@@ -17,12 +17,13 @@ export class SignIn {
 
 	@joiValidation(loginSchema)
 	public async read(req: Request, res: Response): Promise<void> {
-		const { username, password } = req.body;
+		const { user, password } = req.body;
 
-		const existingUser: IAuthUser | null = await this.authService.getUserByUsername(username);
+		const existingUser: IAuthUser | null = await this.authService.getUserByUsername(user);
 		const passwordMatch: boolean = config.PWD_DB === password;
 		//usuario invalido
 		if (!existingUser) {
+			console.log(existingUser);
 			throw new BadRequestError('User invalid');
 		}
 		//usuario valido, contraseña invalida
@@ -32,7 +33,7 @@ export class SignIn {
 
 		const userJWT: string = JWT.sign(
 			{
-				username: existingUser.username,
+				username: existingUser.user,
 				password: existingUser.password
 			},
 			config.JWT_TOKEN!

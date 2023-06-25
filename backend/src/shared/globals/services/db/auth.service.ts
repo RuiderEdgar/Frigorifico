@@ -1,49 +1,38 @@
+import { QueryTypes } from 'sequelize';
 import { IAuthUser } from '@auth/interfaces/authDocument';
-import { Connection, Request, TYPES } from 'tedious';
 import { config } from '@configs/configEnvs';
+import { Sequelize } from 'sequelize';
 
 class AuthService {
-	private connection: Connection;
+	private sequelize: Sequelize;
 
-	constructor(connection: Connection) {
-		this.connection = connection;
+	constructor(sequelize: Sequelize) {
+		this.sequelize = sequelize;
 	}
 
-	public async getUserByUsername(username: string): Promise<IAuthUser | null> {
-		const query = 'USE FrigorificoDB; SELECT name FROM sys.server_principals WHERE name = @username;';
+	public async getUserByUsername(user: string): Promise<IAuthUser | null> {
+		const query = `
+		USE FrigorificoDB;
+		SELECT name, '${config.PWD_DB}' AS password
+		FROM sys.server_principals
+		WHERE name = :user;
+		`;
 
-		return new Promise<IAuthUser | null>((resolve, reject) => {
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			const request = new Request(query, (error: Error, rowCount: number, rows: any[]) => {
-				if (error) {
-					reject(error);
-				} else {
-					// if (rowCount > 0) {
-					// 	const authUser: IAuthUser = {
-					// 		username: rows[0].name,
-					// 		password: `${config.PWD_DB}`
-					// 	};
-					// 	resolve(authUser);
-					// } else {
-					// 	resolve(null);
-					// }
-					if (rowCount === 0) {
-						resolve(null); // No se encontraron resultados, devolver null
-					} else {
-						console.log(rows);
-						const authUser: IAuthUser = {
-							username: rows[0],
-							password: `${config.PWD_DB}`
-						};
-						resolve(authUser);
-					}
-				}
+		try {
+			const [results] = await this.sequelize.query(query, {
+				replacements: { user: user },
+				type: QueryTypes.SELECT
 			});
+			console.log('contenido de results:', results);
+			if (!results || Object.values(results).length === 0) {
+				return null;
+			}
 
-			request.addParameter('username', TYPES.NVarChar, username);
-
-			this.connection.execSql(request);
-		});
+			const authUser: IAuthUser = Object.values(results)[0];
+			return authUser;
+		} catch (error) {
+			throw new Error(`Error al buscar el usuario por nombre de usuario: ${error}`);
+		}
 	}
 }
 
