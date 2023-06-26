@@ -9,6 +9,7 @@ class Config {
 	public SECRET_KEY_ONE: string | undefined;
 	public SECRET_KEY_TWO: string | undefined;
 	public CLIENT_URL: string | undefined;
+	public CLIENT_URL_DEV: string | undefined;
 	public SERVER_PORT: string | number | undefined;
 	public NAME_DB: string | undefined;
 	public USER_DB: string | undefined;
@@ -22,6 +23,7 @@ class Config {
 		this.SECRET_KEY_ONE = process.env.SECRET_KEY_ONE;
 		this.SECRET_KEY_TWO = process.env.SECRET_KEY_TWO;
 		this.CLIENT_URL = process.env.CLIENT_URL;
+		this.CLIENT_URL_DEV = process.env.CLIENT_URL_DEV;
 		this.SERVER_PORT = process.env.SERVER_PORT;
 		this.NAME_DB = process.env.NAME_DB;
 		this.USER_DB = process.env.USER_DB;

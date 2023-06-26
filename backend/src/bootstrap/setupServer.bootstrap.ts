@@ -38,9 +38,30 @@ export class FrigorificoServer {
 			})
 		);
 
+		// const allowedOrigins = [config.CLIENT_URL, config.CLIENT_URL_DEV];
+		// const filteredOrigins = allowedOrigins.filter(origin => origin !== undefined);
+
+		// const allowedOrigins = (requestOrigin, callback) => {
+		// 	const whitelist = [config.CLIENT_URL, config.CLIENT_URL_DEV]; // Agrega las URLs adicionales aquí
+
+		// 	if (!requestOrigin || whitelist.includes(requestOrigin)) {
+		// 		callback(null, requestOrigin);
+		// 	} else {
+		// 		callback(new Error('Not allowed by CORS'));
+		// 	}
+		// };
+
 		app.use(
 			cors({
-				origin: config.CLIENT_URL,
+				origin: (requestOrigin, callback) => {
+					const whitelist = [config.CLIENT_URL, 'http://localhost:5173']; // Agrega las URLs adicionales aquí
+
+					if (!requestOrigin || whitelist.includes(requestOrigin)) {
+						callback(null, requestOrigin);
+					} else {
+						callback(new Error('Not allowed by CORS'));
+					}
+				},
 				optionsSuccessStatus: 200,
 				methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 			})

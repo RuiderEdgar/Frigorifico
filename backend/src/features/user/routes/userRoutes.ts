@@ -10,7 +10,7 @@ class UserRouters {
 		this.router = express.Router();
 		const distribuidorService = new DistribuidorService(FrigorificoDB);
 		const informationController = new Information(distribuidorService);
-		this.router.get('/distribuidor/information', informationController.obtenerDistribuidores);
+		this.router.get('/home/distribuidor/information', informationController.obtenerDistribuidores);
 	}
 
 	public routes(): Router {

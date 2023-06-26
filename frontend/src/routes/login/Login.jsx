@@ -30,10 +30,6 @@ export const Login = () => {
 		}
 	}
 
-	// const onHandlerSubmit = (e) => {
-	// 	e.preventDefault()
-	// }
-
 	return (
 		<main className={styles.background}>
 			<section className={styles.loginContainer}>
