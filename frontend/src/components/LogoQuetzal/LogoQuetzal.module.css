@@ -1,0 +1,9 @@
+.logoContainer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+.logo {
+	height: 16rem;
+	width: 18rem;
+}

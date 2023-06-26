@@ -1,10 +1,10 @@
-import { Button } from '../Button.jsx/Button';
+import { Button } from '../../components/Button.jsx/Button';
 import logoCarniceria from '../../assets/images/selecta.png';
 import styles from './Inicio.module.css';
 
-export const Inicio = ({ view }) => {
+export const Inicio = () => {
 	const handlerButton = () => {
-		view(false);
+		window.location.href = '/login'
 	};
 	return (
 		<>

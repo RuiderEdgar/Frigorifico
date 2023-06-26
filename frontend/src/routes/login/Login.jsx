@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { PersonCircle } from 'react-bootstrap-icons';
-import { Button } from '../Button.jsx/Button';
+import { Button } from '../../components/Button.jsx/Button';
+import { LogoQuetzal } from '../../components/LogoQuetzal/LogoQuetzal';
 import styles from './login.module.css';
 
 export const Login = () => {
@@ -29,17 +30,17 @@ export const Login = () => {
 		}
 	}
 
-	const onHandlerSubmit = (e) => {
-		e.preventDefault()
-	}
+	// const onHandlerSubmit = (e) => {
+	// 	e.preventDefault()
+	// }
 
 	return (
-		<>
+		<main className={styles.background}>
 			<section className={styles.loginContainer}>
 				<header>
 					<PersonCircle size={80} color="white" />
 				</header>
-				<form method="POST" action="http://localhost:5000/api/v1/signin" className={styles.formContainer} onSubmit={onHandlerSubmit}>
+				<form method="POST" action="http://localhost:5000/api/v1/signin" className={styles.formContainer}>
 					<div className={`${styles.labelInputContainer} ${styles.labelContainer}`}>
 						<label className={styles.label} htmlFor="user">
 							USER:
@@ -67,6 +68,7 @@ export const Login = () => {
 					</div>
 				</form>
 			</section>
-		</>
+			<LogoQuetzal/>
+		</main>
 	);
 };
