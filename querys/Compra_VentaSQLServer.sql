@@ -111,15 +111,15 @@ H_salida TIME;
 
 
 /*Insert en Personal*/
-INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
+INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FrecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
  VALUES (167,'Hilda','Guzmán','Reyes',55456789,21572456,'2015-05-16','Semana',1200.00,'Ayudante','07:35:30','12:36:19');
-INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
- VALUES (321,'Erendira','Del Valle','Merino',55123456,21573520,'1995-01-01','Quincena',3000.00,'Administrador','07:35:31','10:36:19');
-INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
- VALUES (456,'Luis','Garcia','Becerril',55234567,21571234,'1995-01-01','Quincena',3000.00,'Administrador','07:35:31','15:36:19');
-INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
+INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FrecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
+ VALUES (321,'Erendira','Del Valle','Merino',55123456,21573520,'1995-01-01','Quincena',3000.00,'Administra','07:35:31','10:36:19');
+INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FrecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
+ VALUES (456,'Luis','Garcia','Becerril',55234567,21571234,'1995-01-01','Quincena',3000.00,'Administra','07:35:31','15:36:19');
+INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FrecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
  VALUES (687,'Veronica','Ordoñes','Flores',55001234,21579874,'2010-07-01','Semana',1000.00,'Ayudante','07:35:31','09:36:19');
-INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
+INSERT INTO Personal (NumSS,Nombre,ApePaterno,ApeMaterno,TelPersonal,TelCasa,FechaContrato,FrecuenciaPago,SueldoBase,Puesto,h_entrada,h_salida)
  VALUES (897,'Cristina','Monroy','Jimenez',55345678,21571265,'2016-01-16','Semana',1200.00,'Ayudante','07:35:31','16:36:19');
 
 /*Insert en Clientes*/
